@@ -1,0 +1,10 @@
+.content1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+img{
+    text-align: left;
+}
+
+gray
