@@ -70,8 +70,6 @@ nav ul {
   list-style: none;
   width: 100%;
   text-align: center;
-  /* Display by default on mobile */
-  display: block;
 }
 
 nav li {
@@ -91,6 +89,11 @@ nav a {
   font-size: 1rem;
   cursor: pointer;
   margin-bottom: 0.5rem;
+}
+
+/* Hide class for menu toggle */
+.hide {
+  display: none;
 }
 
 /* Main Content Styles */
@@ -122,12 +125,60 @@ main h2 {
   border: 1px solid #ddd;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   padding: 5px;
+  cursor: pointer;
 }
 
 .gallery img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Image Viewer Modal Styles */
+dialog {
+  width: 100vw; /* Use viewport width */
+  height: 100vh; /* Use viewport height */
+  max-width: 100vw !important; /* Override any max-width */
+  max-height: 100vh !important; /* Override any max-height */
+  margin: 0; /* Remove any margin */
+  position: fixed; /* Fix position to viewport */
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  padding: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+dialog::backdrop {
+  background-color: transparent; /* Make the default backdrop transparent */
+}
+
+dialog img {
+  width: 90%;
+  max-height: 80vh;
+  margin: 20vh auto 0;
+  display: block;
+  object-fit: contain;
+}
+
+.close-viewer {
+  position: absolute;
+  top: 20vh;
+  right: 5%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Footer Styles */
@@ -153,13 +204,15 @@ footer {
     align-items: center;
   }
   
-  /* Hide the navigation links on medium screens */
-  nav ul {
-    display: none;
+  /* Dialog styles for medium screens */
+  dialog img {
+    width: 80%;
+    margin: 15vh auto 0;
   }
   
-  nav ul.show {
-    display: block;
+  .close-viewer {
+    top: 15vh;
+    right: 10%;
   }
 }
 
@@ -179,7 +232,7 @@ footer {
   }
   
   nav ul {
-    display: flex;
+    display: flex !important; /* Always show menu on large screens */
     justify-content: center;
     margin-top: 0;
     width: auto;
@@ -192,5 +245,17 @@ footer {
   
   .gallery {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  /* Dialog styles for large screens */
+  dialog img {
+    width: 60%;
+    max-height: 80vh;
+    margin: 10vh auto 0;
+  }
+  
+  .close-viewer {
+    top: 10vh;
+    right: 20%;
   }
 }
