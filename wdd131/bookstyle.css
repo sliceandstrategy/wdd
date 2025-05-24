@@ -1,0 +1,236 @@
+/* Import Ubuntu font */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* Color variables based on provided palette */
+:root {
+  --cerulean: #006e90;
+  --apricot: #ffdac6;
+  --black-bean: #3c1518;
+  --yellow-green: #99c24d;
+  --chili-red: #e3170a;
+}
+
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--black-bean);
+  background-color: #fff;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Ubuntu", Arial, sans-serif;
+  font-weight: 700;
+  color: var(--black-bean);
+}
+
+a {
+  color: var(--cerulean);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Skip to content accessibility feature */
+.skiptocontent a {
+  position: absolute;
+  left: 0;
+  top: -40px;
+  background: var(--cerulean);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skiptocontent a:focus {
+  top: 0;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Navigation styles */
+nav {
+  border-top: 1px solid var(--black-bean);
+  border-bottom: 1px solid var(--black-bean);
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
+}
+
+.main-nav {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  justify-content: end;
+  justify-items: end;
+  max-width: 1200px;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.main-nav li {
+  padding: 0.5rem 0;
+}
+
+.main-nav a {
+  font-size: 1.2rem;
+  color: var(--black-bean);
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: var(--chili-red);
+  text-decoration: none;
+}
+
+/* Main content layout */
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Article styles */
+.book-review {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--apricot);
+}
+
+.book-details {
+  text-align: right;
+  padding-right: 1.5rem;
+  border-right: 1px solid var(--apricot);
+}
+
+.book-details time {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--cerulean);
+}
+
+.rating {
+  font-size: 1.1rem;
+  color: var(--yellow-green);
+  margin-bottom: 0.5rem;
+}
+
+.genre {
+  font-size: 0.9rem;
+  color: var(--black-bean);
+  font-style: italic;
+}
+
+.ages {
+  font-size: 0.9rem;
+  color: var(--black-bean);
+  margin-top: 0.5rem;
+}
+
+.book-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--black-bean);
+}
+
+.book-content img {
+  float: left;
+  margin: 0 1rem 1rem 0;
+  border: 3px solid var(--apricot);
+}
+
+.book-content p {
+  margin-bottom: 1rem;
+}
+
+.read-more {
+  display: inline-block;
+  background-color: var(--cerulean);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.read-more:hover {
+  background-color: var(--black-bean);
+  text-decoration: none;
+}
+
+/* Sidebar styles */
+.sidebar {
+  background-color: var(--apricot);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--cerulean);
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  background-color: var(--black-bean);
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .book-review {
+    grid-template-columns: 1fr;
+  }
+
+  .book-details {
+    text-align: left;
+    padding-right: 0;
+    border-right: none;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--apricot);
+  }
+
+  .main-nav {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
+}
