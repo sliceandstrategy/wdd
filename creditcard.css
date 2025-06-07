@@ -1,0 +1,288 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+
+body {
+  background-color: #fff;
+  font-family: lato, 'helvetica-light', sans-serif; /* Added sans-serif fallback */
+  position: relative;
+  text-transform: uppercase;
+  padding: 20px 0;
+  display: flex; /* For centering the form-container */
+  flex-direction: column; /* For messages above form */
+  align-items: center; /* For centering the form-container */
+  min-height: 100vh; /* Ensure body takes full height */
+  box-sizing: border-box;
+}
+
+#form-container {
+  /* margin: auto; Removed as body will center it */
+  width: 500px;
+  height: 290px; /* This height might be restrictive, consider min-height or auto */
+  position: relative;
+  margin-top: 20px; /* Space from error/success messages */
+}
+
+#card-front,
+#card-back {
+  position: absolute;
+  background-color: #DDDDDD;
+  width: 390px;
+  height: 250px;
+  border-radius: 6px;
+  padding: 20px 30px 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  color: rgb(133, 133, 133);
+}
+
+#card-back {
+  top: 40px;
+  right: 0;
+  z-index: -2; /* Ensure it's behind the front */
+}
+
+#shadow {
+  position: absolute;
+  right: 0; /* This might need adjustment based on #card-front padding */
+  width: 284px; /* Consider relative units or calc() if padding changes */
+  height: 214px;
+  top: 36px;
+  background-color: #000; /* This is a solid black shadow, consider opacity or box-shadow property */
+  z-index: -1; /* Ensure it's behind card-front content but above card-back */
+  border-radius: 8px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+#image-container {
+  width: 100%;
+  position: relative;
+  height: 55px;
+  margin-bottom: 5px;
+  line-height: 55px; /* Vertically aligns text if used directly */
+}
+
+#amount {
+  font-size: 12px;
+}
+
+#amount strong {
+  font-size: 14px;
+}
+
+#card-image {
+  float: right;
+  height: 100%; /* Ensure SVG/img scales correctly */
+  display: flex; /* For better alignment of the image/icon */
+  align-items: center;
+}
+
+#card-image img, 
+#card-image i { /* Style for both img (from JS) and potential fallback icon */
+  font-size: 40px; /* For Font Awesome icon */
+  max-height: 100%; /* Ensure image scales down if too tall */
+  width: auto;
+}
+
+
+label {
+  display: block;
+  margin: 0 auto 7px;
+}
+
+input {
+  border: solid 1px #444444; /* Explicit border width */
+  outline: none;
+  background-color: #ffffff;
+  height: 30px;
+  line-height: 30px; /* Or use padding for vertical alignment */
+  padding: 0 10px;
+  margin: 0 0 25px;
+  color: rgb(61, 61, 61);
+  font-size: 10px;
+  box-sizing: border-box;
+  border-radius: 1px;
+  font-family: lato, 'helvetica-light', sans-serif;
+  letter-spacing: .7px;
+  width: 100%; /* Make inputs take full width of their container by default */
+}
+
+input::-webkit-input-placeholder {
+  color: #000000;
+  opacity: 0.7;
+  font-family: lato, 'helvetica-light', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 10px;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+  color: #000000;
+  opacity: 0.7;
+  font-family: lato, 'helvetica-light', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 10px;
+}
+
+input::-moz-placeholder { /* Firefox 19+ */
+  color: #000000;
+  opacity: 0.7;
+  font-family: lato, 'helvetica-light', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 10px;
+}
+
+input:-ms-input-placeholder {
+  color: #000000;
+  opacity: 0.7;
+  font-family: lato, 'helvetica-light', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 10px;
+}
+
+#card-number,
+#card-holder {
+  width: 100%; /* Already default for input, but explicit here */
+}
+
+#cardholder-container {
+  width: 60%;
+  display: inline-block;
+  vertical-align: top; /* Align with exp-container */
+}
+
+#exp-container {
+  margin-left: 10px; /* Creates space from cardholder */
+  width: calc(40% - 10px); /* Adjust width considering margin */
+  display: inline-block;
+  float: right; /* Or use flexbox on parent for better layout */
+  vertical-align: top;
+}
+
+#card-month,
+#card-year {
+  width: 45% !important; /* !important is generally discouraged, try to achieve without it */
+  display: inline-block; /* Needed if not already block/full-width */
+}
+
+#card-year {
+  float: right; /* Positions year input to the right of month */
+}
+
+#cvc-container {
+  position: absolute;
+  width: 110px;
+  right: -115px; /* Positions it outside the card-front */
+  bottom: -10px; /* Aligns with the bottom of the card-front inputs */
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+#cvc-container label {
+  width: 100%;
+}
+
+#card-cvc {
+  width: 60px;
+  margin-bottom: 0;
+}
+
+#cvc-container p {
+  font-size: 6px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  letter-spacing: .5px;
+  margin-top: 2px; /* Add some space from input */
+}
+
+#card-stripe {
+  width: 100%;
+  height: 55px;
+  background-color: #444444;
+  position: absolute; /* Position within card-back */
+  top: 20px; /* Example positioning, adjust as needed */
+  left: 0; /* Ensure it spans full width from left */
+  right: 0; /* Ensure it spans full width to right */
+}
+
+#card-token {
+  display: none; /* Hidden, as it's for Stripe token */
+}
+
+#card-btn {
+  background-color: #fff;
+  color: #444444;
+  position: absolute;
+  bottom: -55px; /* Position below the form container */
+  right: 0;
+  width: 150px;
+  border-radius: 8px;
+  height: 42px;
+  font-size: 12px;
+  font-family: lato, 'helvetica-light', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  outline: none;
+  border: 1px solid #444444; /* Explicit border */
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition */
+}
+
+#card-btn:hover {
+  background-color: rgb(0, 162, 84);
+  color: #fff;
+  border-color: rgb(0, 162, 84); /* Match border color on hover */
+}
+
+/* Message Styles */
+#form-errors,
+#card-success {
+  width: 500px; /* Match form-container width */
+  margin: 0 auto 10px; /* Centered, with bottom margin */
+  height: 50px;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-weight: 400;
+  box-sizing: border-box;
+  line-height: 46px; /* Vertically center text */
+  letter-spacing: .5px;
+  text-transform: none;
+  text-align: center; /* Center icon and text */
+}
+
+#card-success {
+  color: #00b349;
+  background-color: #e6ffed; /* Light green background */
+  border: 1px solid #00b349; /* Green border */
+}
+
+#form-errors {
+  color: #eb0000;
+  background-color: #ffeeee; /* Light red background */
+  border: 1px solid #eb0000; /* Red border */
+}
+
+#form-errors p,
+#card-success p {
+  margin: 0 0 0 10px; /* Space text from icon */
+  display: inline-block;
+  vertical-align: middle; /* Align with icon */
+}
+#form-errors i,
+#card-success i {
+  vertical-align: middle; /* Align icon with text */
+}
+
+.hidden {
+  display: none !important; /* Use !important if other styles might override */
+}
+
+input.invalid {
+  border: solid 2px #eb0000 !important; /* Ensure invalid style takes precedence */
+  /* height: 34px; Adjusting height on validation can cause layout shifts, better to use box-shadow or outline */
+  box-shadow: 0 0 3px rgba(235,0,0,0.5);
+}
