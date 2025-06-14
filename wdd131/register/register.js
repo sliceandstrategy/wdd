@@ -55,7 +55,7 @@ function totalFees() {
   // Convert NodeList to an Array and sum up the fees
   const total = [...feeElements].reduce((sum, inputEl) => {
     const feeValue = parseFloat(inputEl.value);
-    return sum + (isNaN(feeValue) ? 0 : feeValue); // Add 0 if value is not a number or empty
+    return sum + (isNaN(feeValue) ? 0 : feeValue); /
   }, 0);
   return total;
 }
