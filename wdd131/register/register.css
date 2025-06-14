@@ -1,0 +1,297 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;700&family=Luckiest+Guy&display=swap");
+
+:root {
+  --camp-primary-green: #4a7729; 
+  --camp-secondary-green: #6a994e; 
+  --camp-dark-green: #386641; 
+  --camp-brown: #a47449; 
+  --camp-light-tan: #f5eedc; 
+  --camp-cream: #f2e8cf; 
+  --camp-text-dark: #3a3a3a; 
+  --camp-text-light: #ffffff;
+  --font-body: "Cabin", Arial, sans-serif;
+  --font-title: "Luckiest Guy", cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--camp-text-dark);
+  line-height: 1.6; 
+  background-color: var(--camp-light-tan);
+  margin: 0; 
+  padding: 0;
+}
+
+nav {
+  background-color: var(--camp-dark-green);
+  padding: 30px 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+nav .nav-content {
+  font-family: var(--font-title);
+  font-size: 2.5em; 
+  color: var(--camp-cream);
+  letter-spacing: 1px;
+}
+
+div,
+form,
+input,
+select,
+textarea,
+label,
+p {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+h1 {
+  font-family: var(--font-title);
+  color: var(--camp-primary-green);
+  text-align: center;
+  font-size: 2.8em; 
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.testbox {
+  padding: 30px; /
+  max-width: 960px;
+  margin: 0 auto 30px auto; 
+  background: #fff;
+  border-radius: 10px; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border: 3px solid var(--camp-brown); /* Wood-like border */
+}
+form {
+  padding: 20px;
+  border-radius: 6px;
+  background: #fff;
+}
+fieldset {
+  margin-bottom: 2em;
+  border: 2px solid var(--camp-secondary-green); /* Soft green border */
+  padding: 20px; 
+  border-radius: 8px;
+}
+legend {
+  font-family: var(--font-title);
+  font-size: 1.5em; 
+  font-weight: normal; 
+  color: var(--camp-primary-green);
+  padding: 0 10px;
+  letter-spacing: 0.5px;
+}
+input,
+select,
+textarea {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px; 
+  background-color: #fcfcfc; 
+}
+input {
+  width: 100%;
+  padding: 10px; 
+}
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: 0.5em;
+}
+input[type="date"] {
+  padding: 9px 10px;
+}
+textarea {
+  width: 100%;
+  padding: 10px;
+}
+.item:hover p,
+.item:hover i,
+.question:hover p,
+.question label:hover,
+input:hover::placeholder {
+  color: var(--camp-secondary-green);
+}
+.item input:hover,
+.item select:hover,
+.item textarea:hover {
+  border: 1px solid var(--camp-secondary-green);
+  box-shadow: 0 0 5px 0 var(--camp-secondary-green);
+  color: var(--camp-secondary-green);
+}
+.item {
+  position: relative;
+  margin: 15px 0; /* Increased margin */
+}
+.item span {
+  color: red;
+  margin-left: 3px;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.columns .item {
+  width: 48%;
+}
+
+/* Style checkbox and radio */
+input[type="radio"] {
+  display: none;
+}
+label.radio {
+  position: relative;
+  display: inline-block;
+  margin: 5px 20px 15px 0;
+  cursor: pointer;
+  padding-left: 28px; 
+}
+.question span {
+  margin-left: 0;
+}
+.question-answer label {
+  display: block;
+}
+label.radio:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; 
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #aaa; 
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+input[type="radio"]:checked + label.radio:before,
+label.radio:hover:before {
+  border: 2px solid var(--camp-primary-green);
+}
+label.radio:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 6px; 
+  transform: translateY(-50%) rotate(-45deg);
+  width: 9px; 
+  height: 5px;
+  border: 3px solid var(--camp-primary-green);
+  border-top: none;
+  border-right: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+input[type="radio"]:checked + label.radio:after {
+  opacity: 1;
+}
+/* end style checkbox and radio */
+
+.btn-block {
+  margin-top: 25px;
+  text-align: center;
+}
+button {
+  width: auto;
+  padding: 12px 25px; /* Larger buttons */
+  border: none;
+  border-radius: 6px;
+  background: var(--camp-primary-green);
+  font-size: 1em; 
+  font-weight: 500; 
+  color: var(--camp-text-light);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  text-transform: uppercase; 
+  letter-spacing: 0.5px;
+}
+button:hover {
+  background: var(--camp-secondary-green);
+  transform: translateY(-1px); 
+}
+button:active {
+  transform: translateY(0px); 
+}
+
+fieldset.participants {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px; /* Increased gap */
+}
+
+fieldset.participants > legend {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+section[class^="participant"] {
+  padding: 20px; /* Increased padding */
+  border: 1px solid var(--camp-brown); 
+  border-radius: 6px;
+  background-color: var(--camp-light-tan); 
+}
+
+section[class^="participant"] > p {
+  font-weight: 700; 
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: var(--camp-dark-green);
+}
+
+fieldset.participants > button#addParticipant {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 0;
+  background-color: var(--camp-brown); 
+}
+fieldset.participants > button#addParticipant:hover {
+  background-color: #c7956a; /* hover light brown */
+}
+
+/* Summary section styles */
+#summary {
+  display: none;
+  margin-top: 30px;
+  padding: 25px;
+  border: 2px solid var(--camp-primary-green);
+  border-radius: 8px;
+  background-color: #e8f5e9; /* Light green background for summary */
+  color: var(--camp-text-dark);
+}
+#summary p {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+@media (max-width: 568px) {
+  .columns .item {
+    width: 100%;
+  }
+  h1 {
+    font-size: 2.2em;
+  }
+  nav .nav-content {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 768px) {
+  fieldset.participants {
+    grid-template-columns: 1fr 1fr;
+  }
+}
