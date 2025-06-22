@@ -278,7 +278,7 @@ footer {
         padding: 2rem;
     }
     .recipe-gallery {
-         /* I felt like the scroll was WAY to long so I like the use of the 3 column use of the recpies */
+         /* I felt like the scroll was WAY to long so I like the use of the 3 columns for the recpies */
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     }
 }
