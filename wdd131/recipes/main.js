@@ -5,8 +5,19 @@ const searchInput = document.getElementById('searchInput');
 const searchForm = document.getElementById('searchForm');
 const currentYearSpan = document.getElementById('currentYear');
 
+// shuffled math array
+function shuffleArray(array) {
+    const shuffled = [...array]; 
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+// recpies input
 function renderRecipes(recipeList) {
-    recipeGallery.innerHTML = ''; 
+    recipeGallery.innerHTML = '';
 
     if (recipeList.length === 0) {
         recipeGallery.innerHTML = '<p class="placeholder-text">No recipes found matching your search.</p>';
@@ -20,17 +31,17 @@ function renderRecipes(recipeList) {
         let ratingStars = '';
         const fullStars = Math.floor(recipe.rating);
         const halfStar = recipe.rating % 1 !== 0;
-        const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
 
         for (let i = 0; i < fullStars; i++) {
             ratingStars += '<span aria-hidden="true" class="icon-star">⭐</span>';
         }
         if (halfStar) {
+            
         }
-        for (let i = 0; i < 5 - fullStars; i++) { 
+        for (let i = 0; i < 5 - fullStars - (halfStar ? 1 : 0); i++) {
             ratingStars += '<span aria-hidden="true" class="icon-star-empty">☆</span>';
         }
-        
+
         const tagsHtml = recipe.tags.map(tag => `<span>${tag}</span>`).join(' ');
 
         card.innerHTML = `
@@ -61,6 +72,7 @@ function renderRecipes(recipeList) {
     });
 }
 
+// search filter
 function filterRecipes(query) {
     const lowerCaseQuery = query.toLowerCase();
     return recipes.filter(recipe => {
@@ -73,6 +85,7 @@ function filterRecipes(query) {
     });
 }
 
+// search form 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const searchTerm = searchInput.value;
@@ -80,16 +93,10 @@ searchForm.addEventListener('submit', (e) => {
     renderRecipes(filteredRecipes);
 });
 
-
-function getRandomRecipe(recipeArray) {
-    if (!recipeArray || recipeArray.length === 0) return null;
-    const randomIndex = Math.floor(Math.random() * recipeArray.length);
-    return recipeArray[randomIndex];
-}
-
-
+// recipe shuffle on search load
 if (recipes && recipes.length > 0) {
-    renderRecipes(recipes); 
+    const shuffledRecipes = shuffleArray(recipes);
+    renderRecipes(shuffledRecipes);
 } else {
     recipeGallery.innerHTML = '<p class="placeholder-text">No recipes available at the moment.</p>';
 }

@@ -6,11 +6,8 @@ body {
   position: relative;
   text-transform: uppercase;
   padding: 20px 0;
-  display: flex; /* For centering the form-container */
-  flex-direction: column; /* For messages above form */
-  align-items: center; /* For centering the form-container */
-  min-height: 100vh; /* Ensure body takes full height */
-  box-sizing: border-box;
+  display: grid;
+  grid-column: 2/3;
 }
 
 #form-container {
