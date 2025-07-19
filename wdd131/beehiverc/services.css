@@ -1,0 +1,238 @@
+body {
+  background-color: var(--light-beige);
+}
+
+/* Hero Section */
+.section-hero-services {
+  position: relative;
+  color: var(--white);
+  text-align: center;
+  padding: 160px 0;
+  background-color: var(--dark-teal);
+}
+
+.hero-services-background {
+  background-image: linear-gradient(rgba(26, 58, 69, 0.6), rgba(26, 58, 69, 0.6)),
+    url("/placeholder.svg?height=600&width=1200");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.hero-services-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-services-content h1 {
+  font-size: 6rem;
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.hero-services-content .btn--outline {
+  color: var(--white);
+  border-color: var(--white);
+  padding: 12px 35px;
+}
+
+.hero-services-content .btn--outline:hover {
+  background-color: var(--white);
+  color: var(--dark-teal);
+}
+
+/* Content Block Section */
+.section-content-block {
+  padding: 100px 0;
+}
+
+.content-layout-wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  gap: 20px;
+}
+
+.content-image-block {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.content-image-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.content-text-block {
+  background-color: var(--dark-teal);
+  color: var(--light-beige-text);
+  padding: 60px;
+  border-radius: 12px;
+}
+
+.image-left {
+  grid-column: 1 / span 7;
+  grid-row: 1;
+  z-index: 1;
+}
+
+.text-right {
+  grid-column: 6 / span 7;
+  grid-row: 1;
+  z-index: 2;
+}
+
+.layout-reversed .text-left {
+  grid-column: 1 / span 7;
+  grid-row: 1;
+  z-index: 2;
+}
+
+.layout-reversed .image-right {
+  grid-column: 6 / span 7;
+  grid-row: 1;
+  z-index: 1;
+}
+
+.content-text-block h4 {
+  font-family: var(--paragraph-font);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.content-text-block h2 {
+  font-family: var(--heading-font);
+  font-size: 3rem;
+  color: var(--white);
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.content-text-block p {
+  color: var(--light-beige-text);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.content-text-block ul {
+  list-style-position: inside;
+  padding-left: 5px;
+  margin-bottom: 25px;
+  color: var(--light-beige-text);
+}
+
+.content-text-block ul li {
+  margin-bottom: 8px;
+}
+
+.content-text-block .btn {
+  margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .hero-services-content h1 {
+    font-size: 4rem;
+  }
+
+  .content-layout-wrapper,
+  .content-layout-wrapper.layout-reversed {
+    grid-template-columns: 1fr;
+  }
+
+  .image-left,
+  .text-right,
+  .layout-reversed .text-left,
+  .layout-reversed .image-right {
+    grid-column: 1 / -1;
+  }
+
+  .image-left,
+  .layout-reversed .image-right {
+    margin-bottom: 30px;
+  }
+
+  .layout-reversed .image-right {
+    grid-row: 1;
+  }
+
+  .layout-reversed .text-left {
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  @media (max-width: 992px) {
+  .hero-services-content h1 {
+    font-size: 4rem;
+  }
+
+  .content-layout-wrapper,
+  .content-layout-wrapper.layout-reversed {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-left,
+  .text-right,
+  .layout-reversed .text-left,
+  .layout-reversed .image-right {
+    grid-column: auto;
+    grid-row: auto;
+    margin: 0;
+  }
+
+  .image-left,
+  .layout-reversed .image-right {
+    order: -1;
+    margin-bottom: 30px;
+  }
+
+  .layout-reversed .text-left,
+  .text-right {
+    order: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-hero-services {
+    padding: 100px 0;
+  }
+
+  .hero-services-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .section-content-block {
+    padding: 50px 0;
+  }
+
+  .content-text-block {
+    padding: 30px;
+  }
+
+  .content-text-block h2 {
+    font-size: 2rem;
+  }
+}
